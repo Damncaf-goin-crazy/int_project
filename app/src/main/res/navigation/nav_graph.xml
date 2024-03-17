@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/biometricFragment">
+
+    <fragment
+        android:id="@+id/recyclerFragment"
+        android:name="com.example.vkapp.ui.recyclerFragment.RecyclerFragment"
+        android:label="fragment_recycler"
+        tools:layout="@layout/fragment_recycler" >
+        <action
+            android:id="@+id/action_recyclerFragment_to_editFragment"
+            app:destination="@id/editFragment" >
+
+            <argument
+                android:name="cell"
+                app:argType="string"
+                app:nullable="true" />
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.vkapp.ui.editFragment.EditFragment"
+        android:label="fragment_edit"
+        tools:layout="@layout/fragment_edit" >
+        <argument
+            android:name="cell"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/biometricFragment"
+        android:name="com.example.vkapp.ui.biometricFragment.BiometricFragment"
+        android:label="fragment_biometric"
+        tools:layout="@layout/fragment_biometric" >
+        <action
+            android:id="@+id/biometric_to_recycler"
+            app:destination="@id/recyclerFragment" />
+    </fragment>
+</navigation>
