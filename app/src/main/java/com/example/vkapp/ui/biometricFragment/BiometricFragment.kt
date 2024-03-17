@@ -60,7 +60,7 @@ class BiometricFragment : Fragment() {
                 } else {
                     Toast.makeText(
                         context,
-                        "Password should be at least 6 characters",
+                        "Password should be at least 6 characters long",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
