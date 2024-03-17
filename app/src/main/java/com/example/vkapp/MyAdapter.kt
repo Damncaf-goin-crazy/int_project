@@ -1,6 +1,5 @@
 package com.example.vkapp
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +9,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 
 class MyAdapter(private val onItemClicked: (WebSiteConfig) -> Unit) :
-    ListAdapter<WebSiteConfig, MyAdapter.TodoCellsViewHolder>(CellDiffCallBack()) {
+    ListAdapter<WebSiteConfig, MyAdapter.WebViewHolder>(CellDiffCallBack()) {
 
-    class TodoCellsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class WebViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val webSite: TextView = itemView.findViewById(R.id.tvWebSite)
         private val login: TextView = itemView.findViewById(R.id.tvLogin)
         private val thumbnail: AppCompatImageView = itemView.findViewById(R.id.ivThumbnail)
@@ -33,13 +31,13 @@ class MyAdapter(private val onItemClicked: (WebSiteConfig) -> Unit) :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoCellsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WebViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.each_cell, parent, false)
-        return TodoCellsViewHolder(view)
+        return WebViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: TodoCellsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: WebViewHolder, position: Int) {
         holder.onBind(getItem(position), onItemClicked)
     }
 }

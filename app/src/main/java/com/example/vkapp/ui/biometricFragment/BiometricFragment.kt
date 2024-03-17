@@ -1,5 +1,6 @@
 package com.example.vkapp.ui.biometricFragment
 
+import android.health.connect.datatypes.units.Length
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -44,7 +45,8 @@ class BiometricFragment : Fragment() {
                 if (str == sharedPreferences.getPassword()) {
                     findNavController().navigate(BiometricFragmentDirections.biometricToRecycler())
                 } else {
-                    //TODO bad password
+                    Toast.makeText(context, "Incorrect password", Toast.LENGTH_SHORT).show()
+
                 }
             }
             authenticate()
@@ -56,7 +58,11 @@ class BiometricFragment : Fragment() {
                     sharedPreferences.setPassword(str)
                     findNavController().navigate(BiometricFragmentDirections.biometricToRecycler())
                 } else {
-                    //TODO bad password
+                    Toast.makeText(
+                        context,
+                        "Password should be at least 6 characters",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
